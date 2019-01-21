@@ -46,7 +46,7 @@ app mgr mwreq respond = do
             -- Do not touch response body. Otherwise there may be discrepancy
             -- between response headers and the response content.
             , HC.decompress = const False
-            , HC.responseTimeout =  
+            , HC.responseTimeout = HC.responseTimeoutMicro 180000000
             }
             
     -- handle (respond . errorResponse) $
